@@ -42,9 +42,6 @@ def bisection_root(func, variable1, variable2):
 
         if y_pred1 * y_pred2 > 0:
             raise ValueError("Initial guesses do not bracket the root")
-        if variable1 > variable2:
-            variable1, variable2 = variable2, variable1
-
         while abs(variable1 - variable2) > 0.001:
             x_mid = (variable1 + variable2) / 2
             y_mid = func(x_mid)
@@ -58,8 +55,11 @@ def bisection_root(func, variable1, variable2):
             else:
                 variable1 = x_mid
                 y_pred1 = y_mid
-    except:
         raise ValueError("Failed to find a root within the tolerance")
+    except ValueError as e:
+        print("Warning:", e)
+        raise
+
 
 ROOT = bisection_root(math.sin, 2, 4)
 print(ROOT)
