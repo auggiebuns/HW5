@@ -9,7 +9,7 @@ def gcd(integer1, integer2):
         integer1, integer2 = integer2, integer1
     if integer2 == 0:
         return integer1
-    return gcd(integer2, integer1 % binteger2)
+    return gcd(integer2, integer1 % integer2)
 
 
 def remove_pairs(path):
