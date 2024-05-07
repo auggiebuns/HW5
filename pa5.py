@@ -55,6 +55,6 @@ def bisection_root(func, variable1, variable2):
             else:
                 variable1 = x_mid
                 y_pred1 = y_mid
-        except:
+    except:
             raise ValueError("Failed to find a root within the tolerance")
 
