@@ -58,3 +58,4 @@ def bisection_root(func, variable1, variable2):
     except:
             raise ValueError("Failed to find a root within the tolerance")
 
+ROOT = bisection_root(math.sin, 2,4)
