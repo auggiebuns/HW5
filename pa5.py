@@ -1,64 +1,62 @@
 #!/usr/bin/env python3
+'''pa5 functions for homework 5'''
 
 import math
 
-def gcd(a, b):
+def gcd(integer1, integer2):
     '''The gcd of two integers using Euclid's algorithm.'''
-    if b > a:
-        a, b = b, a
-    if b == 0:
-        return a
-    return gcd(b, a % b)
+    if integer2 > integer1:
+        integer1, integer2 = integer2, integer1
+    if integer2 == 0:
+        return integer1
+    return gcd(integer2, integer1 % binteger2)
 
 
 def remove_pairs(path):
     '''Remove turnaround pairs from a string.'''
     if len(path) < 2:
         return path
-    
     if path[0] == opposite_direction(path[1]):
         return remove_pairs(path[2:])
-    else:
-        return path[0] + remove_pairs(path[1:])
+    return path[0] + remove_pairs(path[1:])
 
 
 def opposite_direction(direction):
     '''Get the opposite direction for a given direction.'''
     if direction == 'N':
         return 'S'
-    elif direction == 'E':
+    if direction == 'E':
         return 'W'
-    elif direction == 'S':
+    if direction == 'S':
         return 'N'
-    elif direction == 'W':
+    if direction == 'W':
         return 'E'
 
 
-def bisection_root(func, x1, x2):
+def bisection_root(func, variable1, variable2):
     '''Root of a function using the bisection method.'''
 
-    y1 = func(x1)
-    y2 = func(x2)
+    y_pred1 = func(variable1)
+    y_pred2 = func(variable2)
 
-    if y1 * y2 > 0:
+    if y_pred1 * y_pred2 > 0:
         raise ValueError("Initial guesses do not bracket the root")
 
-    while abs(x1 - x2) > 0.001:
-        x_mid = (x1 + x2) / 2
+    while abs(variable1 - variable2) > 0.001:
+        x_mid = (variable1 + variable2) / 2
         y_mid = func(x_mid)
 
         if abs(y_mid) < 0.001:
             return x_mid
 
-        if y1 * y_mid < 0:
-            x2 = x_mid
-            y2 = y_mid
+        if y_pred1 * y_mid < 0:
+            variable2 = x_mid
+            y_pred2 = y_mid
         else:
-            x1 = x_mid
-            y1 = y_mid
+            variable1 = x_mid
+            y_pred1 = y_mid
 
     raise ValueError("Failed to find a root within the tolerance")
 
-root = bisection_root(math.sin, 2, 4)
-print(root)  
-
+ROOT = bisection_root(math.sin, 2, 4)
+print(ROOT)
