@@ -60,6 +60,8 @@ def bisection_root(func, variable1, variable2):
         print("Warning:", e)
         raise
 
-
-ROOT = bisection_root(math.sin, 2, 4)
-print(ROOT)
+try:
+    ROOT = bisection_root(math.sin, 2, 4)
+    print("Root approximation:", ROOT)  # Output should be approximately pi
+except ValueError as e:
+    print("Test failed:", e)
