@@ -55,7 +55,9 @@ def bisection_root(func, variable1, variable2):
             else:
                 variable1 = x_mid
                 y_pred1 = y_mid
-    except:
-            raise ValueError("Failed to find a root within the tolerance")
+        raise ValueError("Failed to find a root within the tolerance")    
+    except Exception as exc:
+        print("Warning:", exc)
+        raise ValueError("Failed to find a root within the tolerance") from exc
 
 ROOT = bisection_root(math.sin, 2,4)
