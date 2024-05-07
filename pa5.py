@@ -42,11 +42,11 @@ def bisection_root(func, variable1, variable2):
 
         if y_pred1 * y_pred2 > 0:
             raise ValueError("Initial guesses do not bracket the root")
-        while abs(variable1 - variable2) > 0.001:
+        while abs(variable1 - variable2) > 0.0000001:
             x_mid = (variable1 + variable2) / 2
             y_mid = func(x_mid)
 
-            if abs(y_mid) < 0.001:
+            if abs(y_mid) < 0.0000001:
                 return x_mid
 
             if y_pred1 * y_mid < 0:
