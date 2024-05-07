@@ -55,13 +55,6 @@ def bisection_root(func, variable1, variable2):
             else:
                 variable1 = x_mid
                 y_pred1 = y_mid
-        raise ValueError("Failed to find a root within the tolerance")
-    except ValueError as e:
-        print("Warning:", e)
-        raise
+        except:
+            raise ValueError("Failed to find a root within the tolerance")
 
-try:
-    ROOT = bisection_root(math.sin, 2, 4)
-    print("Root approximation:", ROOT)  # Output should be approximately pi
-except ValueError as e:
-    print("Test failed:", e)
