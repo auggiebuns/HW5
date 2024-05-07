@@ -3,6 +3,7 @@
 
 import math
 
+
 def gcd(integer1, integer2):
     '''The gcd of two integers using Euclid's algorithm.'''
     if integer2 > integer1:
@@ -57,6 +58,7 @@ def bisection_root(func, variable1, variable2):
             y_pred1 = y_mid
 
     raise ValueError("Failed to find a root within the tolerance")
+
 
 ROOT = bisection_root(math.sin, 2, 4)
 print(ROOT)
