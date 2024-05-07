@@ -36,30 +36,30 @@ def opposite_direction(direction):
 
 def bisection_root(func, variable1, variable2):
     '''Root of a function using the bisection method.'''
+    try:
+        y_pred1 = func(variable1)
+        y_pred2 = func(variable2)
 
-    y_pred1 = func(variable1)
-    y_pred2 = func(variable2)
+        if y_pred1 * y_pred2 > 0:
+            raise ValueError("Initial guesses do not bracket the root")
+        if variable1 > variable2:
+            variable1, variable2 = variable2, variable1
 
-    if y_pred1 * y_pred2 > 0:
-        raise ValueError("Initial guesses do not bracket the root")
-    if variable1 > variable2:
-        variable1, variable2 = variable2, variable1
+        while abs(variable1 - variable2) > 0.001:
+            x_mid = (variable1 + variable2) / 2
+            y_mid = func(x_mid)
 
-    while abs(variable1 - variable2) > 0.001:
-        x_mid = (variable1 + variable2) / 2
-        y_mid = func(x_mid)
+            if abs(y_mid) < 0.001:
+                return x_mid
 
-        if abs(y_mid) < 0.001:
-            return x_mid
-
-        if y_pred1 * y_mid < 0:
-            variable2 = x_mid
-            y_pred2 = y_mid
-        else:
-            variable1 = x_mid
-            y_pred1 = y_mid
-
-    raise ValueError("Failed to find a root within the tolerance")
+            if y_pred1 * y_mid < 0:
+                variable2 = x_mid
+                y_pred2 = y_mid
+            else:
+                variable1 = x_mid
+                y_pred1 = y_mid
+    except:
+        raise ValueError("Failed to find a root within the tolerance")
 
 ROOT = bisection_root(math.sin, 2, 4)
 print(ROOT)
