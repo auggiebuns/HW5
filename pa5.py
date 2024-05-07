@@ -1,16 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# Problem 1: GCD
-
-# In[4]:
-
+#!/usr/bin/env python3
 
 import math
-
-
-# In[2]:
-
 
 def gcd(a, b):
     '''The gcd of two integers using Euclid's algorithm.'''
@@ -19,11 +9,6 @@ def gcd(a, b):
     if b == 0:
         return a
     return gcd(b, a % b)
-
-
-# Problem 2: Directions
-
-# In[3]:
 
 
 def remove_pairs(path):
@@ -36,6 +21,7 @@ def remove_pairs(path):
     else:
         return path[0] + remove_pairs(path[1:])
 
+
 def opposite_direction(direction):
     '''Get the opposite direction for a given direction.'''
     if direction == 'N':
@@ -46,16 +32,6 @@ def opposite_direction(direction):
         return 'N'
     elif direction == 'W':
         return 'E'
-
-print(remove_pairs("EEWN"))  # Output: "EN"
-print(remove_pairs("SSNS"))  # Output: "SS"
-print(remove_pairs("ESNW"))  # Output: "EW"
-print(remove_pairs("WEWE"))  # Output: "WE"
-
-
-# Problem 3: Bisection Method
-
-# In[6]:
 
 
 def bisection_root(func, x1, x2):
@@ -85,10 +61,4 @@ def bisection_root(func, x1, x2):
 
 root = bisection_root(math.sin, 2, 4)
 print(root)  
-
-
-# In[ ]:
-
-
-
 
