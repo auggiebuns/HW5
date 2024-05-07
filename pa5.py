@@ -61,7 +61,7 @@ def bisection_root(func, variable1, variable2):
 
 
 ROOT = bisection_root(math.sin, 2, 4)
-tolerance = 0.001  # Tolerance for comparison
-expected_root = math.pi
-assert abs(root_approx - expected_root) < tolerance
+DECIMAL_LIMIT = 0.001  # Tolerance for comparison
+EXPECTED_ROOT = math.pi
+assert abs(ROOT - EXPECTED_ROOT) < DECIMAL_LIMIT
 print(ROOT)
